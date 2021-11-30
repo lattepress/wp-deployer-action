@@ -113,9 +113,6 @@ svn status | grep '^\!' | sed 's/! *//' | xargs -I% svn rm %@ > /dev/null
 echo "➤ Copying tag..."
 svn cp "trunk" "tags/$VERSION"
 
-# Remove changes from
-svn rm --keep-local "trunk"
-
 # Fix screenshots getting force downloaded when clicking them
 # https://developer.wordpress.org/plugins/wordpress-org/plugin-assets/
 svn propset svn:mime-type image/png assets/*.png || true
